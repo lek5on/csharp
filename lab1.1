@@ -37,7 +37,6 @@ public class Triangle
 {
     public double a, b, c;
 
-    // треугольник по сторонам
     public Triangle(double a, double b, double c)
     {
         this.a = a;
@@ -45,7 +44,6 @@ public class Triangle
         this.c = c;
     }
 
-    // треугольник по точкам
     public Triangle(Point p1, Point p2, Point p3)
     {
         a = p1.dist(p2);
@@ -69,35 +67,35 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Input x and y for point 1:");
+        Console.WriteLine("введите координаты для точки 1:");
         int x = Convert.ToInt32(Console.ReadLine());
         int y = Convert.ToInt32(Console.ReadLine());
         Point p1 = new Point(x, y);
 
-        Console.WriteLine("Input x and y for point 2:");
+        Console.WriteLine("введите координаты для точки 2:");
         x = Convert.ToInt32(Console.ReadLine());
         y = Convert.ToInt32(Console.ReadLine());
         Point p2 = new Point(x, y);
 
-        Console.WriteLine("Input x and y for point 3:");
+        Console.WriteLine("введите координаты для точки 3:");
         x = Convert.ToInt32(Console.ReadLine());
         y = Convert.ToInt32(Console.ReadLine());
         Point p3 = new Point(x, y);
 
-        Console.WriteLine("Points:");
+        Console.WriteLine("точки:");
         Console.WriteLine(p1.print());
         Console.WriteLine(p2.print());
         Console.WriteLine(p3.print());
 
-        Console.WriteLine("Distance between p1 and p2 = " + p1.dist(p2));
+        Console.WriteLine("расстояние между точками 1 и 2 = " + p1.dist(p2));
 
         Triangle t = new Triangle(p1, p2, p3);
 
-        Console.WriteLine("Triangle:");
+        Console.WriteLine("треугольник:");
         Console.WriteLine("a = " + t.a);
         Console.WriteLine("b = " + t.b);
         Console.WriteLine("c = " + t.c);
-        Console.WriteLine("Perimeter = " + t.p);
-        Console.WriteLine("Area = " + t.s());
+        Console.WriteLine("периметр = " + t.p);
+        Console.WriteLine("площадь = " + t.s());
     }
 }
