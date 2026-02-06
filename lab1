@@ -1,0 +1,59 @@
+public class Point
+{
+    public int x, y;
+    public Point(int x, int y)
+    {
+
+    }
+    public int X { get { return x; } set { x = value; } }
+}
+
+class My
+{
+    static void Main(string [] args)
+    {
+        Console.WriteLine("input x,y");
+        int x = Convert.ToInt32(Console.ReadLine());
+        int y = Convert.ToInt32(Console.ReadLine());
+        Point p1 = new Point (x, y);
+        Console.WriteLine("input x,y");
+        x = Convert.ToInt32(Console.ReadLine());
+        y = Convert.ToInt32(Console.ReadLine());
+        Point p2 = new Point(x, y);
+
+        Console.WriteLine(p1.print());
+        Console.WriteLine(p2.print());
+        Console.WriteLine("dist" + p1.dist(p2));
+    }
+}
+
+public class Triangle
+{
+    public int a, b, c;
+
+    public Triangle(int a,int b,int c)
+    {
+        this.a = a; this.b = b; this.c = c;
+    }
+    public int p
+    {
+        return a+b+c;
+    }
+    public double s()
+    {
+        double pp = p() / 2;
+        return Math.Sqrt(pp*(pp-a)*(pp-b)*(pp-c));
+    }
+}
+class My {
+    static void Main(string[] args)
+    {
+        Console.WriteLine("input a,b,c");
+        int a = Convert.ToInt32(Console.ReadLine());
+        int b = Convert.ToInt32(Console.ReadLine());
+        int c = Convert.ToInt32(Console.ReadLine());
+        Triangle t = new Triangle(a, b, c);
+        Console.WriteLine("p=" + t.p());
+        Console.WriteLine("s=" + t.s());
+    }
+    }
