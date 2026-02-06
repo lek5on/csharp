@@ -1,0 +1,103 @@
+using System;
+
+public class Point
+{
+    public int x, y;
+
+    public Point(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int X
+    {
+        get { return x; }
+        set { x = value; }
+    }
+
+    public int Y
+    {
+        get { return y; }
+        set { y = value; }
+    }
+
+    public string print()
+    {
+        return "(" + x + ", " + y + ")";
+    }
+
+    public double dist(Point p)
+    {
+        return Math.Sqrt((x - p.x) * (x - p.x) + (y - p.y) * (y - p.y));
+    }
+}
+
+public class Triangle
+{
+    public double a, b, c;
+
+    // треугольник по сторонам
+    public Triangle(double a, double b, double c)
+    {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    // треугольник по точкам
+    public Triangle(Point p1, Point p2, Point p3)
+    {
+        a = p1.dist(p2);
+        b = p2.dist(p3);
+        c = p3.dist(p1);
+    }
+
+    public double p
+    {
+        get { return a + b + c; }
+    }
+
+    public double s()
+    {
+        double pp = p / 2;
+        return Math.Sqrt(pp * (pp - a) * (pp - b) * (pp - c));
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Input x and y for point 1:");
+        int x = Convert.ToInt32(Console.ReadLine());
+        int y = Convert.ToInt32(Console.ReadLine());
+        Point p1 = new Point(x, y);
+
+        Console.WriteLine("Input x and y for point 2:");
+        x = Convert.ToInt32(Console.ReadLine());
+        y = Convert.ToInt32(Console.ReadLine());
+        Point p2 = new Point(x, y);
+
+        Console.WriteLine("Input x and y for point 3:");
+        x = Convert.ToInt32(Console.ReadLine());
+        y = Convert.ToInt32(Console.ReadLine());
+        Point p3 = new Point(x, y);
+
+        Console.WriteLine("Points:");
+        Console.WriteLine(p1.print());
+        Console.WriteLine(p2.print());
+        Console.WriteLine(p3.print());
+
+        Console.WriteLine("Distance between p1 and p2 = " + p1.dist(p2));
+
+        Triangle t = new Triangle(p1, p2, p3);
+
+        Console.WriteLine("Triangle:");
+        Console.WriteLine("a = " + t.a);
+        Console.WriteLine("b = " + t.b);
+        Console.WriteLine("c = " + t.c);
+        Console.WriteLine("Perimeter = " + t.p);
+        Console.WriteLine("Area = " + t.s());
+    }
+}
